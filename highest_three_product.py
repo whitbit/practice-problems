@@ -21,6 +21,7 @@ def get_highest_product_of_three(integers):
 
     return highest_product
 
+
 def get_highest_product_of_three_2(numbers):
     """
     O(n logn) solution: take product of max 3 nums.
@@ -38,6 +39,7 @@ def get_highest_product_of_three_2(numbers):
     numbers.sort()
 
     return numbers[-3] * numbers[-2] * numbers[-1]
+
 
 def get_highest_product_of_three_3(numbers):
     """
