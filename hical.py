@@ -1,7 +1,11 @@
 def merge_ranges(meeting_times):
 
     """
-    Takes a list of meeting time ranges and retursn a list of condensed ranges.
+    O(n logn) for sorting list first.
+
+    O(n) to iterate over the sorted list.
+    
+    Takes a list of meeting time ranges and returns a list of condensed ranges.
     Solution should be efficient even if we don't have a nice upper bound.
 
     >>> merge_ranges([(0, 1), (3, 5), (4, 8), (10, 12), (9, 10)])
