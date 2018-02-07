@@ -22,13 +22,13 @@ def lcs(a, b):
                 if grid[x][y] > max_value:
                     max_value = grid[x][y]
                     max_value_index = x
+    for line in grid:
+        print line
 
     return a[(max_value_index - max_value + 1):max_value_index + 1]
 
 
-print lcs('acjjjjhelloabfc', 'helloxyzlll')
+print lcs('acjjjjhelloabfc', 'acjjjdsfhelloxyzlll')
 
-# for line in grid:
-#     print line
 
 
