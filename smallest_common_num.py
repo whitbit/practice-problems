@@ -5,6 +5,7 @@ arr3 = [1, 6, 10, 14]
 def find_smallest_common_num_bf(arr1, arr2, arr3):
     # O(n^3) time complexity
     # O(1) space complexity
+    
     common_num = -1
 
     for i in range(len(arr1)):
