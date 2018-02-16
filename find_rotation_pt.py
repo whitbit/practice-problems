@@ -1,21 +1,55 @@
+
+def find_rotation_point(words):
+    first_word = words[0]
+    floor_index = 0
+    ceiling_index = len(words) - 1
+
+    while floor_index < ceiling_index:
+        # Guess a point halfway between floor and ceiling
+        guess_index = floor_index + ((ceiling_index - floor_index) / 2)
+
+        # If guess comes after first word or is the first word
+        if words[guess_index] >= first_word:
+            # Go right
+            floor_index = guess_index
+        else:
+            # Go left
+            ceiling_index = guess_index
+
+        # If floor and ceiling have converged
+        if floor_index + 1 == ceiling_index:
+            # Between floor and ceiling is where we flipped to the beginning
+            # so ceiling is alphabetically first
+            return ceiling_index
+
 def find_rotation_pt(words):
 
-    first_word = words[0]
-    flr_idx = 0
-    ceiling_idx = len(words) - 1
+    start = 0
+    end = len(words) - 1
 
-    if words[ceiling_idx] > first_word:
-        return 0
+    while start < end:
+        mid = start + ((end-start) // 2)
+        if words[mid-1] > words[mid]:
+            return mid
+        if words[mid] < words[start]:
+            end = mid
+        if words[mid] > words[end]:
+            start = mid
+    return None
 
-    while flr_idx < ceiling_idx:
-        guess_idx = flr_idx + ((ceiling_idx-flr_idx)//2)
 
-        if words[guess_idx] >= first_word:
-            flr_idx = guess_idx
-        else:
-            ceiling_idx = guess_idx
+words = [
+    'ptolemaic',
+    'retrograde',
+    'supplant',
+    'undulate',
+    'xenoepist',
+    'asymptote',  # <-- rotates here!
+    'babka',
+    'banoffee',
+    'engender',
+    'karpatka',
+    'othellolagkage',
+]
 
-        if flr_idx + 1 == ceiling_idx:
-            return ceiling_idx
-
-    return 0
+print find_rotation_pt(words)
