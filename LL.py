@@ -21,7 +21,7 @@ class LinkedList(object):
         self.head = new_node
    
 
-    def reverse_list(self):
+    def reverse_list_in_place(self):
         current = self.head
         prev = None
 
@@ -32,11 +32,20 @@ class LinkedList(object):
             prev = current
             current = temp_next
 
-
         self.head = prev
         return prev
 
- 
+    def build_new_reversed_list(self):
+        current = self.head
+        new_list = LinkedList()
+        
+        while current:
+            new_node = Node(current.val)
+            new_list.push(new_node)
+            current = current.next
+
+        return new_node
+
     # Given a reference to the head of a list and a key,
     # delete the first occurence of key in linked list
     def deleteNode(self, key):
